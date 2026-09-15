@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+WAYLAND_DISPLAY= alacritty -e bash -c "./pomodoro.raku \"\$@\"; exec bash" bash "$@" &

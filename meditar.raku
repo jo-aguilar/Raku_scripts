@@ -35,11 +35,32 @@ sub MAIN (*@ARGS) {
 			\"3.5000 \" x 1 ~
 			\"5.6667 \" x 1' )");
 		}
+		elsif ( @ARGS[0] eq "palin" ) {
+			shell ("raku medit.raku \$(raku -e 'put
+			\"0.25 \" x 1 ~ 
+			\"0.1667 \" x 1 ~
+			\"0.1667 \" x 1 ~
+			\"0.3333 \" x 1 ~
+			\"0.5000 \" x 1 ~
+			\"0.8333 \" x 1 ~
+			\"1.3333 \" x 1 ~
+			\"2.1667 \" x 1 ~
+			\"3.5000 \" x 1 ~
+			\"2.1667 \" x 1 ~
+			\"1.3333 \" x 1 ~
+			\"0.8333 \" x 1 ~
+			\"0.5000 \" x 1 ~
+			\"1.3333 \" x 1 ~
+			\"0.1667 \" x 1 ~
+			\"0.1667 \" x 1 ~
+			\"0.025 \" x 1' )");
+			
+		}
 		else {
 			say q:to/END/;
 			[!!!] ERRO: Entrada inválida. 
-			      Entradas válidas são somente [fib], [regular] 
-			      e [aleatorio] 
+			      Entradas válidas são somente [fib], [regular], 
+			      [aleatorio] e [palin]
 			END
 			exit;
 		}
@@ -48,7 +69,9 @@ sub MAIN (*@ARGS) {
 	else { 
 		say q:to/END/; 
 		[!!!] ERRO: Mais de um elemento!
-		      uso: raku meditar.raku <ARG>
+		      uso: raku meditar.raku <ARG> +
+		      aleatorio | regular | fib | palin
+
 		END
 		exit;
 		}

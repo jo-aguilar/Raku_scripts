@@ -6,14 +6,15 @@ proto sub retorna_string(@lista_de_retorno) {*};
 
 sub MAIN (*@ARGS) {
 	if ( @ARGS.elems == 1 ) {
+		my $diretorio = $?FILE.IO.parent;
 		if ( @ARGS[0] eq "aleatorio" ) {
 			my $string = retorna_string(lista_temporal(lista_numerica));
-			my $comando = \qq[raku medit.raku \$( raku -e {$string})];
+			my $comando = \qq[raku $diretorio/medit.raku \$( raku -e {$string})];
 			shell($comando);
 		}
 
 		elsif ( @ARGS[0] eq "regular" ) {
-			shell ("raku medit.raku \$(raku -e 'put 
+			shell ("raku $diretorio/medit.raku \$(raku -e 'put 
 			\"4 \" x 2 ~ 
 			\"2 \" x 2 ~
 			\"1 \" x 2 ~
@@ -23,7 +24,7 @@ sub MAIN (*@ARGS) {
 			\"0.075 \" x 2' )");
 		}
 		elsif (@ARGS[0] eq "fib" ) {
-			shell ("raku medit.raku \$(raku -e 'put
+			shell ("raku $diretorio/medit.raku \$(raku -e 'put
 			\"0.25 \" x 1 ~ 
 			\"0.1667 \" x 1 ~
 			\"0.1667 \" x 1 ~
@@ -36,7 +37,7 @@ sub MAIN (*@ARGS) {
 			\"5.6667 \" x 1' )");
 		}
 		elsif ( @ARGS[0] eq "palin" ) {
-			shell ("raku medit.raku \$(raku -e 'put
+			shell ("raku $diretorio/medit.raku \$(raku -e 'put
 			\"0.25 \" x 1 ~ 
 			\"0.1667 \" x 1 ~
 			\"0.1667 \" x 1 ~

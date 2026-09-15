@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-WAYLAND_DISPLAY= alacritty -e bash -c "./pomodoro.raku \"\$@\"; exec bash" bash "$@" &
+SCRIPT_DIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
+WAYLAND_DISPLAY= alacritty -e bash -c "\"$SCRIPT_DIR/pomodoro.raku\" \"\$@\"; exec bash" bash "$@" &
